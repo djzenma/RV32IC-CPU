@@ -1,65 +1,33 @@
-`timescale 1ns / 1ps
+// file: ALU.v
+// author: @cherifsalama
 
- //0010, 0110, 0000, and 0001 
+`timescale 1ns/1ns
 
-module Alu(input [31:0]a, input [31:0]b , input [3:0] select, output zero, output reg[31:0] res);
-wire[31:0] sum, sub;
+module ALU(
+    input [3:0]       sel,
+    input [31:0]      a,
+    input [31:0]      b,
+    output reg [31:0] c,
+    output            z
+);
 
-always @* begin
-    case(select)
-    
-    4'b0010: begin
-    res = sum; 
+    wire [31:0] sum_diff;
+    wire        sub;
+
+    assign sub = (sel == 6) ?1:0;
+
+    AdderSub a1 (sub, a, b, sum_diff);
+
+    always @ (* ) begin
+        case (sel)
+            4'b0010: c = sum_diff;
+            4'b0110: c = sum_diff;
+            4'b0000: c = a & b;
+            4'b0001: c = a | b;
+            default: c = 0;
+        endcase
+
     end
-    
-    4'b0110: begin
-    res = sub;
-    end
-    
-    4'b0000: begin
-    res =a&b;
-    end
-    
-    4'b0001: begin
-    res =a|b;
-    end
-    
-    default: begin
-    res = 0;
-    end
-    
-    endcase
-end
-
-RCA summation (a,b, 0, sum);
-RCA substr (a,b, 1, sub);
-
-assign zero = (res)? 0:1; 
-
+    assign z = (c == 0) ?1:0;
 endmodule
 
-
-module RCA(input[31:0] a, input[31:0] b, input op, output[31:0] res);
-genvar i;
-wire[31:0] c;
-
-FA fa1 (a[0], b[0]^op, op, res[0], c[0]);
-
-    generate
-        for(i=1; i<32; i=i+1) begin :rcaloop
-            FA fa (a[i], b[i]^op, c[i-1], res[i], c[i]);
-        end
-    endgenerate
-    
-    
-endmodule 
-
-
-
-
-module FA(input a, input b, input cin, output sum, output cout);
-
-assign sum = (a^b)^cin;
-assign cout = ((a^b)&cin)|(a&b);
-
-endmodule

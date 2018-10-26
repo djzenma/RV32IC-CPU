@@ -1,40 +1,33 @@
-`timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 10/02/2018 05:38:25 PM
-// Design Name: 
-// Module Name: RegFile
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
+// file: RegFile.v
+// author: @cherifsalama
 
+`timescale 1ns/1ns
 
-module RegFile(input clk, input rst, input[4:0] reg1, input[4:0] reg2, input[4:0] regDest, input[31:0] writeData, input regWrite,
-            output[31:0] read1, output[31:0] read2);
-    wire[31:0] A[31:0];
-    wire[31:0] regIndex;
+module RegFile(
+    input         clk,
+    input         rst,
+    input         WriteEn,
+    input  [4:0]  rs1,
+    input  [4:0]  rs2,
+    input  [4:0]  rd,
+    input  [31:0] write_data,
+    output [31:0] read_data1,
+    output [31:0] read_data2
+);
+
+    wire [31:0] xs[31:0];
+    wire [31:0] load;
+
+    Decoder5_32 dec (WriteEn, rd, load);
+
+    RegWLoad r0 (clk, rst, 1'b0, write_data, xs[0]); //Reg x0 cannot be written (load = 0)
     genvar i;
-    
-    assign read1 = A[reg1];
-    assign read2 = A[reg2];
-    
-    assign regIndex = regWrite ? (1<<regDest) : 0;
+    generate
+        for (i = 1;i < 32; i = i + 1)
+            RegWLoad ri (clk, rst, load[i], write_data, xs[i]);
+    endgenerate
 
-   generate
-         for(i=0; i<32; i=i+1) begin :rcaloop
-             Register register (rst, clk, writeData, regIndex[i], A[i]);
-         end
-   endgenerate
-            
+    assign read_data1 = xs[rs1];
+    assign read_data2 = xs[rs2];
 endmodule
+
