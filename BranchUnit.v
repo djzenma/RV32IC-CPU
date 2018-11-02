@@ -18,22 +18,28 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-
+`ìnclude "values.v"
 
 module BranchUnit(  input branch,
                     input s,
                     input z,
                     input c,
                     input v,
-                    output branchTaken);
-             
-    assign EQ = z;
-    assign NE = ~z;
-    assign LT = (s != v);
-    assign GE = (s == v);
-    assign LTU = ~c;
-    assign GEU = c;
-    
-    assign branchTaken = (LT || GE || LTU || GEU || EQ || NE) && branch;   
+                    input [2:0] func3,
+                    output reg branchTaken);
+                    
+    always @ * begin
+        case(func3)
+            `BR_BEQ:  branchTaken = z;         
+			`BR_BNE:  branchTaken = ~z;        
+			`BR_BLT:  branchTaken = (s != v);
+			`BR_BGE:  branchTaken = (s == v);  
+			`BR_BLTU: branchTaken = (~c);      
+			`BR_BGEU: branchTaken = (c); 
+			default:  branchTaken = 1'b0;
+		endcase
+    end
     
 endmodule
+
+
