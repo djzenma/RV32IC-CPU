@@ -18,7 +18,6 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-`ìnclude "values.v"
 
 module BranchUnit(  input branch,
                     input s,
@@ -30,12 +29,12 @@ module BranchUnit(  input branch,
                     
     always @ * begin
         case(func3)
-            `BR_BEQ:  branchTaken = z;         
-			`BR_BNE:  branchTaken = ~z;        
-			`BR_BLT:  branchTaken = (s != v);
-			`BR_BGE:  branchTaken = (s == v);  
-			`BR_BLTU: branchTaken = (~c);      
-			`BR_BGEU: branchTaken = (c); 
+            `BR_BEQ:  branchTaken = z & branch;         
+			`BR_BNE:  branchTaken = ~z & branch;        
+			`BR_BLT:  branchTaken = (s != v) & branch;
+			`BR_BGE:  branchTaken = (s == v) & branch;  
+			`BR_BLTU: branchTaken = (~c) & branch;      
+			`BR_BGEU: branchTaken = (c) & branch; 
 			default:  branchTaken = 1'b0;
 		endcase
     end

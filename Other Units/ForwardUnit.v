@@ -6,8 +6,8 @@
 
 module ForwardUnit(input EXMEMWB,input MEMWB,input [4:0]EXMEMRD, input [4:0]MEMWBRD, input [4:0]RS1, input [4:0]RS2,output [1:0]FWDA,output [1:0]FWDB);
 
-forward A(.EXMEMWB(EXMEMWB),.MEMWB(MEMWB),.EXMEMRD(EXMEMRD),.MEMWBRD(MEMWBRD),.RS1(RS),.FWDA(FWD));                                                                                                                
-forward B(.EXMEMWB(EXMEMWB),.MEMWB(MEMWB),.EXMEMRD(EXMEMRD),.MEMWBRD(MEMWBRD),.RS2(RS),.FWDB(FWD));
+forward A(.EXMEMWB(EXMEMWB),.MEMWB(MEMWB),.EXMEMRD(EXMEMRD),.MEMWBRD(MEMWBRD),.RS(RS1),.FWDA(FWD));                                                                                                                
+forward B(.EXMEMWB(EXMEMWB),.MEMWB(MEMWB),.EXMEMRD(EXMEMRD),.MEMWBRD(MEMWBRD),.RS(RS2),.FWDB(FWD));
 endmodule
 
 

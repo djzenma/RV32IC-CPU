@@ -7,6 +7,7 @@ module ALU(
     input [3:0]       sel,
     input [31:0]      a,
     input [31:0]      b,
+    input [31:0]      prevRes,
     output reg [31:0] result,
     output            z,
     output            s,
@@ -14,11 +15,11 @@ module ALU(
     output            v
 );
 
-    wire [31:0] sum_diff, sum;
+    wire [31:0] sum_diff, sum, difference;
     reg  [31:0] tempA, tempB;
     wire        sub, cout, ci;
 
-    assign sub = (sel == 6) ?1:0;
+    assign sub = (sel == 6) ? 1 : 0;
 
     AdderSub a1 (sub, a, b, sum_diff);
 
@@ -27,9 +28,15 @@ module ALU(
 //            4'b0010: result = sum_diff;
 //            4'b0110: result = sum_diff;
             
-            `ALU_ADD: result = a + b;
-            `ALU_SUB: result = a - b;
-            `ALU_PASS:result = b;  
+            `ALU_ADD: begin
+                result = a + b; 
+//                $display("Add result: %d + %d = %d", a, b, result);
+            end
+            `ALU_SUB: begin
+                result = a - b;
+                $display("Add result: %d + %d = %d", a, b, result);
+            end
+            `ALU_PASS:result = prevRes;  
             `ALU_OR:  result = a | b;
             `ALU_AND: result = a & b;
             `ALU_XOR: result = a ^ b;
@@ -52,13 +59,13 @@ module ALU(
     RippleAdder rca (
         .a(a), 
         .b(b),
-        .ci(0),
+        .ci(1'b0),
         .s(sum),
         .co(cout),
         .last_ci(ci)
     );
-    
-    assign z = (c == 0) ? 1:0;
+    assign difference = a - b;
+    assign z = (difference == 0) ? 1 : 0;
     assign s = result[31];
     assign c = cout;
     assign v = (ci^cout);

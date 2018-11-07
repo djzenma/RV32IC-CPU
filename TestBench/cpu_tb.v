@@ -26,11 +26,10 @@ reg clk, rst;
 reg[3:0] ssdSel;
 reg[1:0] ledSel;
 
-wire[15:0] leds;
-wire[12:0] ssd;
+wire slow_clk;
 
 
-RISCV cpu (clk, rst, ledSel, ssdSel, leds, ssd);
+RISCV cpu (clk, rst, ledSel, ssdSel);
 
 always begin
 clk=~clk;
@@ -40,7 +39,7 @@ end
 
 
 initial begin
-clk=1;
+clk=0;
 rst=1;
 
 #20;

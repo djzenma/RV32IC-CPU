@@ -4,13 +4,14 @@
 `timescale 1ns/1ns
 
 module ALUControl(
+    input            clk,
     input [1:0]      ALUOp,
     input [2:0]      func3,
     input [6:0]      func7,
     output reg [3:0] sel
 );
 
-    always @(*) begin
+    always @(*) begin         // TODO :: Remove negedge clk
         case (ALUOp)
             `ALUOP_ADD: sel = `ALU_ADD; //add
             `ALUOP_SUB: sel = `ALU_SUB;  //sub
@@ -25,7 +26,7 @@ module ALUControl(
                         (func3 == `F3_SRL && func7 == `F7_SRA) ? `ALU_SRA:
                         `ALU_ADD;
             end
-            default : sel = `ALU_ADD;
+            default : sel = `ALU_PASS;
         endcase
     end
 

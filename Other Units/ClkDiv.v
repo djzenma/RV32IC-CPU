@@ -22,21 +22,9 @@
 
 module ClkDiv(input clk, input rst, output reg clk_o);
 
-always @(posedge clk) begin
+always @(posedge clk, posedge rst) begin
     if(rst)
-        clk_o = 0;
-    else
-        clk_o = ~clk_o;
-end
-endmodule
-
-
-
-module ClkDivRF (input clk, input rst, output reg clk_o);
-
-always @(negedge clk) begin
-    if(rst)
-        clk_o = 1;
+        clk_o = 1'b1;
     else
         clk_o = ~clk_o;
 end
