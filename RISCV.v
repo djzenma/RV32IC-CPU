@@ -14,9 +14,7 @@ module RISCV(
     input             int,
     input             int_num,
     input             nmi,
-    input             en_nmi,
     input             en_ecall,
-    input             en_ebreak,
     input             en_int,
     input             en_tmr,
     input   [31:0]    limit
@@ -288,7 +286,7 @@ module RISCV(
                     .sel   (ALUSel)
     );
 
-    NmiGenerator nmiGen (
+    TmrGenerator tmrGen (
             .clk(clk),
             .rst(rst),
             .limit(limit),
@@ -304,9 +302,7 @@ module RISCV(
                 
                 .en_inter(en_inter),
                 
-                .en_nmi(en_nmi),
                 .en_ecall(en_ecall),
-                .en_ebreak(en_ebreak),
                 .en_int(en_int),
                 .en_tmr(en_tmr),
                 
@@ -314,7 +310,7 @@ module RISCV(
                 .interSel(interSel) 
     );
     
-    InterruptAddressGenerator intrAdrrGen(
+    InterruptAddressGenerator intrAdrrGen(          // TODO :: save PC in mepc
                 .interruptF(interF),
                 .interSel(interSel),
                 .intNum(int_num),
