@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="cpu_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="cpu_tb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="353000002fs"></ZoomEndTime>
+      <Cursor1Time time="225860000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="175"></NameColumnWidth>
+      <ValueColumnWidth column_width="132"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="32" />
+   <wvobject fp_name="/cpu_tb/clk" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+      <obj_property name="label">clk_fast</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/rst" type="logic">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider172">
+      <obj_property name="label">PC</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#FFFFFF</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/interF" type="logic">
+      <obj_property name="ElementShortName">interF</obj_property>
+      <obj_property name="ObjectShortName">interF</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/interSel" type="array">
+      <obj_property name="ElementShortName">interSel[2:0]</obj_property>
+      <obj_property name="ObjectShortName">interSel[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/ID_EX_EBreak" type="logic">
+      <obj_property name="ElementShortName">ID_EX_EBreak</obj_property>
+      <obj_property name="ObjectShortName">ID_EX_EBreak</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/ID_EX_ECall" type="logic">
+      <obj_property name="ElementShortName">ID_EX_ECall</obj_property>
+      <obj_property name="ObjectShortName">ID_EX_ECall</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/ID_EX_interAddr" type="array">
+      <obj_property name="ElementShortName">ID_EX_interAddr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ID_EX_interAddr[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/PC_in" type="array">
+      <obj_property name="ElementShortName">PC_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC_in[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/PC_out" type="array">
+      <obj_property name="ElementShortName">PC_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC_out[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider165">
+      <obj_property name="label">PC Src Mux</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#E0FFFF</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider4194">
+      <obj_property name="label">MEM Address MUX</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#E0FFFF</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider173">
+      <obj_property name="label">MEMORY</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#E0FFFF</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/Mem_out" type="array">
+      <obj_property name="ElementShortName">Mem_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Mem_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider4236">
+      <obj_property name="label">IF_ID Reg</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#E0FFFF</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/IF_ID_InstOut" type="array">
+      <obj_property name="ElementShortName">IF_ID_InstOut[31:0]</obj_property>
+      <obj_property name="ObjectShortName">IF_ID_InstOut[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider120">
+      <obj_property name="label">Stages Regs</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#E0FFFF</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider174">
+      <obj_property name="label">Register</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#E0FFFF</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/RegW" type="array">
+      <obj_property name="ElementShortName">RegW[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RegW[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/RegR1" type="array">
+      <obj_property name="ElementShortName">RegR1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RegR1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/RegR2" type="array">
+      <obj_property name="ElementShortName">RegR2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RegR2[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider4241">
+      <obj_property name="label">RegFile MUX</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#E0FFFF</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider4237">
+      <obj_property name="label">Write Back MUX</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#E0FFFF</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider210">
+      <obj_property name="label">ALU</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#E0FFFF</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/ID_EX_RegR1" type="array">
+      <obj_property name="ElementShortName">ID_EX_RegR1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ID_EX_RegR1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/ALUSrcMux_out" type="array">
+      <obj_property name="ElementShortName">ALUSrcMux_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ALUSrcMux_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/ALU_out" type="array">
+      <obj_property name="ElementShortName">ALU_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ALU_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider4278">
+      <obj_property name="label">ALU Control</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#E0FFFF</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider213">
+      <obj_property name="label">Branch</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#E0FFFF</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/branchTaken" type="logic">
+      <obj_property name="ElementShortName">branchTaken</obj_property>
+      <obj_property name="ObjectShortName">branchTaken</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider8403">
+      <obj_property name="label">Control Unit</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#E0FFFF</obj_property>
+   </wvobject>
+</wave_config>

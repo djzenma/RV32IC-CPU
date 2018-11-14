@@ -15,7 +15,9 @@ module ControlUnit(
     output       ALUSrc,
     output       RegWrite, 
     output [2:0] Mode,
-    output       Lui
+    output       Lui,
+    output       ECall,
+    output       EBreak
 );
     
     assign Jump = (opcode == `OPCODE_JAL) ? 2'b01: 
@@ -59,5 +61,9 @@ module ControlUnit(
                     `ALU_PASS;              // Default Value if opcode not defined
         
     assign Lui  =   (opcode == `OPCODE_LUI) ? 1 : 0;
+    
+    assign ECall =  (opcode == `OPCODE_SYSTEM && instr[14:12] == `SYS_EC_EB && instr[20] == 1'b0) ? 1 : 0;
+    
+    assign EBreak = (opcode == `OPCODE_SYSTEM && instr[14:12] == `SYS_EC_EB && instr[20] == 1'b1) ? 1 : 0;
 
 endmodule

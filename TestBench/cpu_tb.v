@@ -23,20 +23,20 @@
 module cpu_tb();
 
 reg clk, rst;
-reg[3:0] ssdSel;
-reg[1:0] ledSel;
-
-wire slow_clk;
 
 
-RISCV cpu (clk, rst, ledSel, ssdSel);
+RISCV_TOP cpuTest (    
+    .clk(clk),
+    .rst(rst),
+    .en_inter(1'b0),
+    .intReq(8'b0),
+    .nmi(1'b0)
+);
 
 always begin
 clk=~clk;
 #10;
-
 end
-
 
 initial begin
 clk=0;

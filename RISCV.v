@@ -10,11 +10,17 @@
 module RISCV(
     input             clk_i,
     input             rst,
-    input [1:0]       ledSel,
-    input [3:0]       ssdSel
+    input             en_inter,
+    input             int,
+    input             int_num,
+    input             nmi,
+    input             en_nmi,
+    input             en_ecall,
+    input             en_ebreak,
+    input             en_int,
+    input             en_tmr,
+    input   [31:0]    limit
 );
-    reg [15:0] leds;
-    reg [12:0] ssd;
     /*
     *   Variables Declaration
     */
@@ -25,22 +31,24 @@ module RISCV(
     wire [1:0]  ALUOp, Jump;
     wire [3:0]  ALUSel;
     wire        branchTaken, clk_RF, clk_inv, clk, memSelect;
-
+ 
     
     // IF_ID pipeline reg wires
     wire [31:0] IF_ID_PC, IF_ID_Inst, jump_address, jal_branch_address, jalR_address, PC4_Or_Branch, IF_ID_InstOut;
     wire [2:0]  IF_ID_Mode;
     wire [4:0]  rs2;
-    wire        IF_ID_luiControl, CompressedFlag;
+    wire        IF_ID_luiControl, CompressedFlag, ECall, EBreak;
+    
 
     // ID_EX pipeline reg wires
-    wire [31:0] ID_EX_PC, ID_EX_RegR1, ID_EX_RegR2, ID_EX_Imm;
+    wire [31:0] ID_EX_PC, ID_EX_RegR1, ID_EX_RegR2, ID_EX_Imm, ID_EX_interAddr, PC_in_wo_inter;
     wire [12:0] ID_EX_Ctrl;
     wire [9:0]  ID_EX_Func;
     wire [4:0]  ID_EX_Rs1, ID_EX_Rs2, ID_EX_Rd, regsrc;
     wire [2:0]  ID_EX_Mode;
     wire [31:0] memMuxOut;
-    wire        ID_EX_luiControl;
+    wire [2:0]  interSel;
+    wire        ID_EX_luiControl, interF, tmr, ID_EX_ECall, ID_EX_EBreak;
    
     // EX_MEM pipeline reg wires
     wire [31:0] EX_MEM_BranchAddOut, EX_MEM_ALU_out, EX_MEM_RegR2, EX_MEM_PC, EX_MEM_Imm;
@@ -75,15 +83,15 @@ module RISCV(
     );
 
 
-    RegWLoad#(167) ID_EX (.clk (clk),
+    RegWLoad#(169) ID_EX (.clk (clk),
                           .rst (rst),
                           .load (1'b1),
                           .data_in ({ Jump, IF_ID_Mode, RegWrite, MemToReg, Branch, MemRead, MemWrite, ALUOp, ALUSrc,// all the control signals
                                    IF_ID_PC, RegR1, RegR2, ImmGen_out,
                                    IF_ID_Inst[31:25], IF_ID_Inst[14:12],
-                                   IF_ID_Inst[19:15], IF_ID_Inst[24:20], IF_ID_Inst[11:7], IF_ID_luiControl}), // the 3 regs
+                                   IF_ID_Inst[19:15], IF_ID_Inst[24:20], IF_ID_Inst[11:7], IF_ID_luiControl, ECall, EBreak}), // the 3 regs
                           .data_out ({ID_EX_Ctrl, ID_EX_PC, ID_EX_RegR1, ID_EX_RegR2, ID_EX_Imm, // ID_EX_Ctrl has all the 11 bits (7) controls
-                                   ID_EX_Func, ID_EX_Rs1, ID_EX_Rs2, ID_EX_Rd, ID_EX_luiControl}) 
+                                   ID_EX_Func, ID_EX_Rs1, ID_EX_Rs2, ID_EX_Rd, ID_EX_luiControl, ID_EX_ECall, ID_EX_EBreak}) 
     );
 
     RegWLoad#(177) EX_MEM (.clk (~clk),
@@ -192,7 +200,9 @@ module RISCV(
                     .ALUSrc   (ALUSrc),
                     .RegWrite (RegWrite),
                     .Mode     (IF_ID_Mode),
-                    .Lui      (IF_ID_luiControl)
+                    .Lui      (IF_ID_luiControl),
+                    .ECall    (ECall),
+                    .EBreak   (EBreak)
     );
 
     /*
@@ -258,7 +268,7 @@ module RISCV(
          .in2(jal_branch_address),
          .in3(jalR_address),
          .in4(),
-         .out(PC_in)
+         .out(PC_in_wo_inter)
      );
      
       
@@ -278,6 +288,41 @@ module RISCV(
                     .sel   (ALUSel)
     );
 
+    NmiGenerator nmiGen (
+            .clk(clk),
+            .rst(rst),
+            .limit(limit),
+            .tmrF(tmr)
+    );
+    
+    Interrupt_Detector interUnit (
+                .nmi(nmi),
+                .ecall(ID_EX_ECall),
+                .ebreak(ID_EX_EBreak),
+                .int(int),
+                .tmr(tmr),
+                
+                .en_inter(en_inter),
+                
+                .en_nmi(en_nmi),
+                .en_ecall(en_ecall),
+                .en_ebreak(en_ebreak),
+                .en_int(en_int),
+                .en_tmr(en_tmr),
+                
+                .interFlag(interF),
+                .interSel(interSel) 
+    );
+    
+    InterruptAddressGenerator intrAdrrGen(
+                .interruptF(interF),
+                .interSel(interSel),
+                .intNum(int_num),
+                .addr(ID_EX_interAddr)
+    );
+    
+    assign PC_in = (interF) ? ID_EX_interAddr : PC_in_wo_inter;
+    
     /*
     *   Mem  
     */
@@ -329,35 +374,5 @@ module RISCV(
                                     .out (RegW)
     );
 
-
-
-    /*
-    *   Debugging on FPGA
-    */
-    always @ (* ) begin
-        case (ledSel)
-            0: leds <= Inst[15:0];
-            1: leds <= Inst[31:16];
-            2: leds <= {Branch, MemRead, MemToReg, ALUOp, MemWrite,
-                ALUSrc, RegWrite, Zero, branchTaken, ALUSel};
-            default: leds <= 0;
-        endcase
-
-        case (ssdSel)
-            0: ssd <= PC_out[12:0];
-            1: ssd <= PCAdder_out[12:0];
-            2: ssd <= BranchAdder_out[12:0];
-            3: ssd <= PC_in[12:0];
-            4: ssd <= RegR1[12:0];
-            5: ssd <= RegR2[12:0];
-            6: ssd <= RegW[12:0];
-            7: ssd <= ImmGen_out[12:0];
-            8: ssd <= Shift_out[12:0];
-            9: ssd <= ALUSrcMux_out[12:0];
-            10: ssd <= ALU_out[12:0];
-            11: ssd <= Mem_out[12:0];
-            default: ssd <= 0;
-        endcase
-    end
 endmodule
 

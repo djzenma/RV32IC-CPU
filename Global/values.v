@@ -98,6 +98,13 @@
 `define     MEM_HW          3'b001
 `define     MEM_B           3'b010
 
+// Interrupt Selections
+`define     NMI             3'b000
+`define     EBREAK          3'b001
+`define     TMR             3'b010
+`define     INT             3'b011
+`define     ECALL           3'b100
+
 `define     SYS_EC_EB       3'b000
 `define     SYS_CSRRW       3'b001
 `define     SYS_CSRRS       3'b010

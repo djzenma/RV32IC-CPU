@@ -39,7 +39,7 @@
     always @(posedge rst or negedge clk)
         begin
             if (rst == 1) begin 
-                $readmemh("C:/Users/eidma/Desktop/Project/src/testCase.txt",mem);
+                $readmemh("C:/Users/eidma/Desktop/Project/Project/src/testCase.txt",mem);
             end
             else begin
                 if (MemWrite && clk_i) begin
