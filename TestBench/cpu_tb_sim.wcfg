@@ -1,0 +1,650 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="cpu_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="cpu_tb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="74550000fs"></ZoomStartTime>
+      <ZoomEndTime time="411753391fs"></ZoomEndTime>
+      <Cursor1Time time="350000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="175"></NameColumnWidth>
+      <ValueColumnWidth column_width="148"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="84" />
+   <wvobject fp_name="/cpu_tb/clk" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+      <obj_property name="label">clk_fast</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/rst" type="logic">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider172">
+      <obj_property name="label">PC</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#FFFFFF</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/PC_in" type="array">
+      <obj_property name="ElementShortName">PC_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC_in[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/PC_out" type="array">
+      <obj_property name="ElementShortName">PC_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC_out[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider51">
+      <obj_property name="label">CSR</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#E0FFFF</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/csrFile/interUnit/ecall" type="logic">
+      <obj_property name="ElementShortName">ecall</obj_property>
+      <obj_property name="ObjectShortName">ecall</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/csrFile/interUnit/ebreak" type="logic">
+      <obj_property name="ElementShortName">ebreak</obj_property>
+      <obj_property name="ObjectShortName">ebreak</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/csrFile/interUnit/interFlag" type="logic">
+      <obj_property name="ElementShortName">interFlag</obj_property>
+      <obj_property name="ObjectShortName">interFlag</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/interF" type="logic">
+      <obj_property name="ElementShortName">interF</obj_property>
+      <obj_property name="ObjectShortName">interF</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/ID_EX_EBreak" type="logic">
+      <obj_property name="ElementShortName">ID_EX_EBreak</obj_property>
+      <obj_property name="ObjectShortName">ID_EX_EBreak</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/ID_EX_ECall" type="logic">
+      <obj_property name="ElementShortName">ID_EX_ECall</obj_property>
+      <obj_property name="ObjectShortName">ID_EX_ECall</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/ID_EX_MRET" type="logic">
+      <obj_property name="ElementShortName">ID_EX_MRET</obj_property>
+      <obj_property name="ObjectShortName">ID_EX_MRET</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/ID_EX_interAddr" type="array">
+      <obj_property name="ElementShortName">ID_EX_interAddr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ID_EX_interAddr[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/csr_read" type="array">
+      <obj_property name="ElementShortName">csr_read[31:0]</obj_property>
+      <obj_property name="ObjectShortName">csr_read[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/csrAddr" type="array">
+      <obj_property name="ElementShortName">csrAddr[11:0]</obj_property>
+      <obj_property name="ObjectShortName">csrAddr[11:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/MEM_WB_CSRWrite" type="logic">
+      <obj_property name="ElementShortName">MEM_WB_CSRWrite</obj_property>
+      <obj_property name="ObjectShortName">MEM_WB_CSRWrite</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/MEM_WB_RegR1" type="array">
+      <obj_property name="ElementShortName">MEM_WB_RegR1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">MEM_WB_RegR1[31:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/MEM_WB_CSRData" type="array">
+      <obj_property name="ElementShortName">MEM_WB_CSRData[31:0]</obj_property>
+      <obj_property name="ObjectShortName">MEM_WB_CSRData[31:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/MEM_WB_CSRI" type="logic">
+      <obj_property name="ElementShortName">MEM_WB_CSRI</obj_property>
+      <obj_property name="ObjectShortName">MEM_WB_CSRI</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/csrFile/CSR" type="array">
+      <obj_property name="ElementShortName">CSR[6:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">CSR[6:0][31:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider167">
+      <obj_property name="label">Branch Or PC Mux</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#E0FFFF</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/CompressedFlag" type="logic">
+      <obj_property name="ElementShortName">CompressedFlag</obj_property>
+      <obj_property name="ObjectShortName">CompressedFlag</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/PC4_Or_Branch" type="array">
+      <obj_property name="ElementShortName">PC4_Or_Branch[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC4_Or_Branch[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/ID_EX_PC" type="array">
+      <obj_property name="ElementShortName">ID_EX_PC[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ID_EX_PC[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/PC_Or_Branch" type="array">
+      <obj_property name="ElementShortName">PC_Or_Branch[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC_Or_Branch[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider165">
+      <obj_property name="label">PC Src Mux</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#E0FFFF</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/srcOfPC/sel" type="array">
+      <obj_property name="ElementShortName">sel[1:0]</obj_property>
+      <obj_property name="ObjectShortName">sel[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/srcOfPC/in1" type="array">
+      <obj_property name="ElementShortName">in1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">in1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/srcOfPC/in2" type="array">
+      <obj_property name="ElementShortName">in2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">in2[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/srcOfPC/in3" type="array">
+      <obj_property name="ElementShortName">in3[31:0]</obj_property>
+      <obj_property name="ObjectShortName">in3[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/srcOfPC/out" type="array">
+      <obj_property name="ElementShortName">out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">out[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider4194">
+      <obj_property name="label">MEM Address MUX</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#E0FFFF</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider173">
+      <obj_property name="label">MEMORY</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#E0FFFF</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/memMuxOut" type="array">
+      <obj_property name="ElementShortName">memMuxOut[31:0]</obj_property>
+      <obj_property name="ObjectShortName">memMuxOut[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/Mem_out" type="array">
+      <obj_property name="ElementShortName">Mem_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Mem_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/Mem/mem" type="array">
+      <obj_property name="ElementShortName">mem[4095:0][7:0]</obj_property>
+      <obj_property name="ObjectShortName">mem[4095:0][7:0]</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider4236">
+      <obj_property name="label">IF_ID Reg</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#E0FFFF</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/IF_ID_InstOut" type="array">
+      <obj_property name="ElementShortName">IF_ID_InstOut[31:0]</obj_property>
+      <obj_property name="ObjectShortName">IF_ID_InstOut[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider120">
+      <obj_property name="label">Stages Regs</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#E0FFFF</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/ID_EX_PC" type="array">
+      <obj_property name="ElementShortName">ID_EX_PC[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ID_EX_PC[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider174">
+      <obj_property name="label">Register</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#E0FFFF</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/MEM_WB_CSRWrite" type="logic">
+      <obj_property name="ElementShortName">MEM_WB_CSRWrite</obj_property>
+      <obj_property name="ObjectShortName">MEM_WB_CSRWrite</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/MEM_WB_csr_read" type="array">
+      <obj_property name="ElementShortName">MEM_WB_csr_read[31:0]</obj_property>
+      <obj_property name="ObjectShortName">MEM_WB_csr_read[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/RegW" type="array">
+      <obj_property name="ElementShortName">RegW[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RegW[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/WriteEn" type="logic">
+      <obj_property name="ElementShortName">WriteEn</obj_property>
+      <obj_property name="ObjectShortName">WriteEn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/regsrc" type="array">
+      <obj_property name="ElementShortName">regsrc[4:0]</obj_property>
+      <obj_property name="ObjectShortName">regsrc[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/rs2" type="array">
+      <obj_property name="ElementShortName">rs2[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rs2[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/RegR1" type="array">
+      <obj_property name="ElementShortName">RegR1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RegR1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/RegR2" type="array">
+      <obj_property name="ElementShortName">RegR2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RegR2[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs" type="array">
+      <obj_property name="ElementShortName">xs[31:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">xs[31:0][31:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[31]" type="array">
+         <obj_property name="ElementShortName">[31][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[31][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[30]" type="array">
+         <obj_property name="ElementShortName">[30][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[30][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[29]" type="array">
+         <obj_property name="ElementShortName">[29][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[29][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[28]" type="array">
+         <obj_property name="ElementShortName">[28][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[28][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[27]" type="array">
+         <obj_property name="ElementShortName">[27][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[27][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[26]" type="array">
+         <obj_property name="ElementShortName">[26][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[26][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[25]" type="array">
+         <obj_property name="ElementShortName">[25][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[25][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[24]" type="array">
+         <obj_property name="ElementShortName">[24][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[24][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[23]" type="array">
+         <obj_property name="ElementShortName">[23][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[23][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[22]" type="array">
+         <obj_property name="ElementShortName">[22][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[22][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[21]" type="array">
+         <obj_property name="ElementShortName">[21][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[21][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[20]" type="array">
+         <obj_property name="ElementShortName">[20][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[20][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[19]" type="array">
+         <obj_property name="ElementShortName">[19][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[19][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[18]" type="array">
+         <obj_property name="ElementShortName">[18][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[18][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[17]" type="array">
+         <obj_property name="ElementShortName">[17][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[17][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[16]" type="array">
+         <obj_property name="ElementShortName">[16][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[16][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[15]" type="array">
+         <obj_property name="ElementShortName">[15][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[15][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[14]" type="array">
+         <obj_property name="ElementShortName">[14][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[14][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[13]" type="array">
+         <obj_property name="ElementShortName">[13][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[13][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[12]" type="array">
+         <obj_property name="ElementShortName">[12][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[12][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[11]" type="array">
+         <obj_property name="ElementShortName">[11][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[11][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[10]" type="array">
+         <obj_property name="ElementShortName">[10][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[10][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[9]" type="array">
+         <obj_property name="ElementShortName">[9][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[9][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[8]" type="array">
+         <obj_property name="ElementShortName">[8][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[8][31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[7]" type="array">
+         <obj_property name="ElementShortName">[7][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[7][31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[6]" type="array">
+         <obj_property name="ElementShortName">[6][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[6][31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[5]" type="array">
+         <obj_property name="ElementShortName">[5][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[5][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[4]" type="array">
+         <obj_property name="ElementShortName">[4][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[4][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[3]" type="array">
+         <obj_property name="ElementShortName">[3][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[3][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[2]" type="array">
+         <obj_property name="ElementShortName">[2][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[2][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[1]" type="array">
+         <obj_property name="ElementShortName">[1][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[1][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[0]" type="array">
+         <obj_property name="ElementShortName">[0][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[0][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[31]" type="array">
+         <obj_property name="ElementShortName">[31][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[31][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[30]" type="array">
+         <obj_property name="ElementShortName">[30][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[30][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[29]" type="array">
+         <obj_property name="ElementShortName">[29][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[29][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[28]" type="array">
+         <obj_property name="ElementShortName">[28][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[28][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[27]" type="array">
+         <obj_property name="ElementShortName">[27][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[27][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[26]" type="array">
+         <obj_property name="ElementShortName">[26][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[26][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[25]" type="array">
+         <obj_property name="ElementShortName">[25][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[25][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[24]" type="array">
+         <obj_property name="ElementShortName">[24][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[24][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[23]" type="array">
+         <obj_property name="ElementShortName">[23][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[23][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[22]" type="array">
+         <obj_property name="ElementShortName">[22][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[22][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[21]" type="array">
+         <obj_property name="ElementShortName">[21][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[21][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[20]" type="array">
+         <obj_property name="ElementShortName">[20][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[20][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[19]" type="array">
+         <obj_property name="ElementShortName">[19][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[19][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[18]" type="array">
+         <obj_property name="ElementShortName">[18][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[18][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[17]" type="array">
+         <obj_property name="ElementShortName">[17][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[17][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[16]" type="array">
+         <obj_property name="ElementShortName">[16][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[16][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[15]" type="array">
+         <obj_property name="ElementShortName">[15][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[15][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[14]" type="array">
+         <obj_property name="ElementShortName">[14][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[14][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[13]" type="array">
+         <obj_property name="ElementShortName">[13][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[13][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[12]" type="array">
+         <obj_property name="ElementShortName">[12][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[12][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[11]" type="array">
+         <obj_property name="ElementShortName">[11][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[11][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[10]" type="array">
+         <obj_property name="ElementShortName">[10][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[10][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[9]" type="array">
+         <obj_property name="ElementShortName">[9][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[9][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[8]" type="array">
+         <obj_property name="ElementShortName">[8][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[8][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[7]" type="array">
+         <obj_property name="ElementShortName">[7][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[7][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[6]" type="array">
+         <obj_property name="ElementShortName">[6][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[6][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[5]" type="array">
+         <obj_property name="ElementShortName">[5][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[5][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[4]" type="array">
+         <obj_property name="ElementShortName">[4][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[4][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[3]" type="array">
+         <obj_property name="ElementShortName">[3][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[3][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[2]" type="array">
+         <obj_property name="ElementShortName">[2][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[2][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[1]" type="array">
+         <obj_property name="ElementShortName">[1][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[1][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[0]" type="array">
+         <obj_property name="ElementShortName">[0][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[0][31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider4241">
+      <obj_property name="label">RegFile MUX</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#E0FFFF</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider4237">
+      <obj_property name="label">Write Back MUX</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#E0FFFF</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider210">
+      <obj_property name="label">ALU</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#E0FFFF</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/fwdA" type="array">
+      <obj_property name="ElementShortName">fwdA[1:0]</obj_property>
+      <obj_property name="ObjectShortName">fwdA[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/fwdB" type="array">
+      <obj_property name="ElementShortName">fwdB[1:0]</obj_property>
+      <obj_property name="ObjectShortName">fwdB[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/ID_EX_RegR1" type="array">
+      <obj_property name="ElementShortName">ID_EX_RegR1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ID_EX_RegR1[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/ALUSrcMux_out" type="array">
+      <obj_property name="ElementShortName">ALUSrcMux_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ALUSrcMux_out[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/ALU_out" type="array">
+      <obj_property name="ElementShortName">ALU_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ALU_out[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider4278">
+      <obj_property name="label">ALU Control</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#E0FFFF</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider213">
+      <obj_property name="label">Branch</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#E0FFFF</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/branchTaken" type="logic">
+      <obj_property name="ElementShortName">branchTaken</obj_property>
+      <obj_property name="ObjectShortName">branchTaken</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider8403">
+      <obj_property name="label">Control Unit</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#E0FFFF</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/cu/instr" type="array">
+      <obj_property name="ElementShortName">instr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">instr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/cu/opcode" type="array">
+      <obj_property name="ElementShortName">opcode[4:0]</obj_property>
+      <obj_property name="ObjectShortName">opcode[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/cu/Branch" type="logic">
+      <obj_property name="ElementShortName">Branch</obj_property>
+      <obj_property name="ObjectShortName">Branch</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/cu/Jump" type="array">
+      <obj_property name="ElementShortName">Jump[1:0]</obj_property>
+      <obj_property name="ObjectShortName">Jump[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/cu/MemRead" type="logic">
+      <obj_property name="ElementShortName">MemRead</obj_property>
+      <obj_property name="ObjectShortName">MemRead</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/cu/MemToReg" type="logic">
+      <obj_property name="ElementShortName">MemToReg</obj_property>
+      <obj_property name="ObjectShortName">MemToReg</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/cu/ALUOp" type="array">
+      <obj_property name="ElementShortName">ALUOp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">ALUOp[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/cu/MemWrite" type="logic">
+      <obj_property name="ElementShortName">MemWrite</obj_property>
+      <obj_property name="ObjectShortName">MemWrite</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/cu/ALUSrc" type="logic">
+      <obj_property name="ElementShortName">ALUSrc</obj_property>
+      <obj_property name="ObjectShortName">ALUSrc</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/cu/RegWrite" type="logic">
+      <obj_property name="ElementShortName">RegWrite</obj_property>
+      <obj_property name="ObjectShortName">RegWrite</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/cu/Mode" type="array">
+      <obj_property name="ElementShortName">Mode[2:0]</obj_property>
+      <obj_property name="ObjectShortName">Mode[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/cu/Lui" type="logic">
+      <obj_property name="ElementShortName">Lui</obj_property>
+      <obj_property name="ObjectShortName">Lui</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/cu/ECall" type="logic">
+      <obj_property name="ElementShortName">ECall</obj_property>
+      <obj_property name="ObjectShortName">ECall</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/cu/EBreak" type="logic">
+      <obj_property name="ElementShortName">EBreak</obj_property>
+      <obj_property name="ObjectShortName">EBreak</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/cu/MRET" type="logic">
+      <obj_property name="ElementShortName">MRET</obj_property>
+      <obj_property name="ObjectShortName">MRET</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/cu/CSRWrite" type="logic">
+      <obj_property name="ElementShortName">CSRWrite</obj_property>
+      <obj_property name="ObjectShortName">CSRWrite</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/MEM_WB_Ctrl[1]" type="logic">
+      <obj_property name="ElementShortName">[1]</obj_property>
+      <obj_property name="ObjectShortName">[1]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/EX_MEM_Ctrl[4]" type="logic">
+      <obj_property name="ElementShortName">[4]</obj_property>
+      <obj_property name="ObjectShortName">[4]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/ID_EX_Ctrl[7]" type="logic">
+      <obj_property name="ElementShortName">[7]</obj_property>
+      <obj_property name="ObjectShortName">[7]</obj_property>
+   </wvobject>
+</wave_config>
