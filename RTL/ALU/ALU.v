@@ -7,7 +7,6 @@ module ALU(
     input [3:0]       sel,
     input [31:0]      a,
     input [31:0]      b,
-    input [31:0]      prevRes,
     output reg [31:0] result,
     output            z,
     output            s,
@@ -15,18 +14,12 @@ module ALU(
     output            v
 );
 
-    wire [31:0] sum_diff, sum, difference;
+    wire [31:0] sum, difference;
     reg  [31:0] tempA, tempB;
-    wire        sub, cout, ci;
-
-    assign sub = (sel == 6) ? 1 : 0;
-
-    AdderSub a1 (sub, a, b, sum_diff);
+    wire        cout, ci;
 
     always @ (*) begin
         case (sel)
-//            4'b0010: result = sum_diff;
-//            4'b0110: result = sum_diff;
             
             `ALU_ADD: begin
                 result = a + b; 
@@ -36,7 +29,7 @@ module ALU(
                 result = a - b;
                 $display("Add result: %d + %d = %d", a, b, result);
             end
-            `ALU_PASS:result = prevRes;  
+            `ALU_PASS:result = result;  
             `ALU_OR:  result = a | b;
             `ALU_AND: result = a & b;
             `ALU_XOR: result = a ^ b;
@@ -47,8 +40,12 @@ module ALU(
             `ALU_SLTU: begin
                 if (a[31])
                     tempA = (~a) + 1;
+                else
+                    tempA = tempA;
                 if (b[31])
                     tempB = (~b) + 1;
+                else
+                    tempB = tempB;
                 result = ( tempA < tempB ) ? 1 : 0;
             end
             default: result = 0;

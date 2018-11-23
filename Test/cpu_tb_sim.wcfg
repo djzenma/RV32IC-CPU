@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="74550000fs"></ZoomStartTime>
-      <ZoomEndTime time="411753391fs"></ZoomEndTime>
-      <Cursor1Time time="350000000fs"></Cursor1Time>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="317649631fs"></ZoomEndTime>
+      <Cursor1Time time="150000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="175"></NameColumnWidth>
-      <ValueColumnWidth column_width="148"></ValueColumnWidth>
+      <ValueColumnWidth column_width="136"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="84" />
+   <WVObjectSize size="93" />
    <wvobject fp_name="/cpu_tb/clk" type="logic">
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">clk</obj_property>
@@ -48,6 +48,39 @@
       <obj_property name="ElementShortName">PC_out[31:0]</obj_property>
       <obj_property name="ObjectShortName">PC_out[31:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/IF_ID_PC" type="array">
+      <obj_property name="ElementShortName">IF_ID_PC[31:0]</obj_property>
+      <obj_property name="ObjectShortName">IF_ID_PC[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/ID_EX_PC" type="array">
+      <obj_property name="ElementShortName">ID_EX_PC[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ID_EX_PC[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/EX_MEM_PC" type="array">
+      <obj_property name="ElementShortName">EX_MEM_PC[31:0]</obj_property>
+      <obj_property name="ObjectShortName">EX_MEM_PC[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/MEM_WB_PC" type="array">
+      <obj_property name="ElementShortName">MEM_WB_PC[31:0]</obj_property>
+      <obj_property name="ObjectShortName">MEM_WB_PC[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/ctrls_part1" type="array">
+      <obj_property name="ElementShortName">ctrls_part1[12:0]</obj_property>
+      <obj_property name="ObjectShortName">ctrls_part1[12:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/ctrls_part2" type="array">
+      <obj_property name="ElementShortName">ctrls_part2[3:0]</obj_property>
+      <obj_property name="ObjectShortName">ctrls_part2[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/ctrls_part3" type="array">
+      <obj_property name="ElementShortName">ctrls_part3[4:0]</obj_property>
+      <obj_property name="ObjectShortName">ctrls_part3[4:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
    </wvobject>
    <wvobject type="divider" fp_name="divider51">
       <obj_property name="label">CSR</obj_property>
@@ -237,6 +270,7 @@
    <wvobject fp_name="/cpu_tb/cpuTest/CPU/regsrc" type="array">
       <obj_property name="ElementShortName">regsrc[4:0]</obj_property>
       <obj_property name="ObjectShortName">regsrc[4:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/cpu_tb/cpuTest/CPU/rs2" type="array">
       <obj_property name="ElementShortName">rs2[4:0]</obj_property>
@@ -349,17 +383,14 @@
       <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[8]" type="array">
          <obj_property name="ElementShortName">[8][31:0]</obj_property>
          <obj_property name="ObjectShortName">[8][31:0]</obj_property>
-         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[7]" type="array">
          <obj_property name="ElementShortName">[7][31:0]</obj_property>
          <obj_property name="ObjectShortName">[7][31:0]</obj_property>
-         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[6]" type="array">
          <obj_property name="ElementShortName">[6][31:0]</obj_property>
          <obj_property name="ObjectShortName">[6][31:0]</obj_property>
-         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[5]" type="array">
          <obj_property name="ElementShortName">[5][31:0]</obj_property>
@@ -376,6 +407,7 @@
       <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[2]" type="array">
          <obj_property name="ElementShortName">[2][31:0]</obj_property>
          <obj_property name="ObjectShortName">[2][31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/cpu_tb/cpuTest/CPU/rf/xs[1]" type="array">
          <obj_property name="ElementShortName">[1][31:0]</obj_property>
@@ -547,10 +579,20 @@
       <obj_property name="ObjectShortName">ALUSrcMux_out[31:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/ALU_OprandA" type="array">
+      <obj_property name="ElementShortName">ALU_OprandA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ALU_OprandA[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cpu_tb/cpuTest/CPU/ALU_OprandB" type="array">
+      <obj_property name="ElementShortName">ALU_OprandB[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ALU_OprandB[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
    <wvobject fp_name="/cpu_tb/cpuTest/CPU/ALU_out" type="array">
       <obj_property name="ElementShortName">ALU_out[31:0]</obj_property>
       <obj_property name="ObjectShortName">ALU_out[31:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject type="divider" fp_name="divider4278">
       <obj_property name="label">ALU Control</obj_property>

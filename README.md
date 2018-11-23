@@ -1,6 +1,12 @@
-{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf100
-{\fonttbl}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
-}
+The folder contains the following:
+RTL: contains all the verilog implementations
+Test: contains the testCase.txt file where you can put your own testcases, and contains a simulation configuration file that you can use to see a nice looking simulation.
+
+
+If you want to test your own code: 
+convert your code to hex, 
+then go to the file “RTL/TestBench/testCase.txt” in the project directory and paste your code into it. 
+Please make sure to change the path of the "testCase.txt" file in the $readmemh() function in the Memory module according to your own path.
+
+For Log File:
+https://github.com/djzenma/RV32IC-CPU

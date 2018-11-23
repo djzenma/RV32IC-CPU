@@ -4,7 +4,6 @@
 `timescale 1ns/1ns
 
 module ALUControl(
-    input            clk,
     input [1:0]      ALUOp,
     input [2:0]      func3,
     input [6:0]      func7,

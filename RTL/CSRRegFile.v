@@ -37,6 +37,7 @@ module CSRRegFile(
     input [31:0] CSR_Write_Data,
     input    Set,
     input    Clear,
+    input    JumpOrBranch,
     output reg [31:0] CSR_Read_Data,
     output   interF,
     output [31:0] interAddr
@@ -103,7 +104,7 @@ always @(posedge clk) begin
         CSR[`MTIME] = 32'd22000;
         CSR[`MTIMECMP] = 32'd22010;
         CSR[`MEPC] = 32'b0;
-        CSR[`MINSTRET] = 32'b01;
+        CSR[`MINSTRET] = 32'b0;
         CSR[`MCYCLE] = 32'b0;
         CSR[`MIP] = 32'b0;
         CSR[`MIE] = 32'b01111;
@@ -123,6 +124,7 @@ always @(posedge clk_slow) begin
     // MTIME && MTIMECMP Regs Handling
     if(count == 10) begin
         CSR[`MTIME] = CSR[`MTIME] + 1;
+        count = count + 1;
     end
     else if(count == 10 + 1) begin
         count = 0;
@@ -139,7 +141,9 @@ always @(posedge clk_slow) begin
         tmr = 1'b0;
     end
     
-    
+    // MinStret Reg Handling
+    if(!JumpOrBranch)
+        CSR[`MINSTRET] = CSR[`MINSTRET] + 1;
 end
 
 assign load = clk ^ clk_slow;

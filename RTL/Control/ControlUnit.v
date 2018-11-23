@@ -16,6 +16,7 @@ module ControlUnit(
     output       RegWrite, 
     output [2:0] Mode,
     output       Lui,
+    output       Auipc,
     output       ECall,
     output       EBreak,
     output       MRET,
@@ -28,12 +29,13 @@ module ControlUnit(
     assign Jump = (opcode == `OPCODE_JAL) ? 2'b01: 
                   (opcode == `OPCODE_JALR) ? 2'b10:
                   2'b00;
-    assign Branch = (opcode == `OPCODE_Branch) ? 1:0;
-    assign MemRead = (opcode == `OPCODE_Load) ? 1 :0;
-    assign MemToReg = (opcode == `OPCODE_Load) ? 1:0;
-    assign MemWrite = (opcode == `OPCODE_Store) ? 1:0;
-    assign ALUSrc = ((opcode == `OPCODE_Arith_I) || (opcode == `OPCODE_Store) || (opcode == `OPCODE_Load)) ? 1:0;
-    assign RegWrite = ((opcode == `OPCODE_Load) || (opcode == `OPCODE_Arith_R) || (opcode == `OPCODE_Arith_I) || (opcode == `OPCODE_JAL) || (opcode == `OPCODE_JALR) || (opcode == `OPCODE_LUI) || (CSRWrite) ) ? 1:0;
+                  
+    assign Branch = (opcode == `OPCODE_Branch) ? 1'b1 : 1'b0;
+    assign MemRead = (opcode == `OPCODE_Load) ? 1'b1 : 1'b0;
+    assign MemToReg = (opcode == `OPCODE_Load) ? 1'b1: 1'b0;
+    assign MemWrite = (opcode == `OPCODE_Store) ? 1'b1 : 1'b0;
+    assign ALUSrc = ((opcode == `OPCODE_Arith_I) || (opcode == `OPCODE_Store) || (opcode == `OPCODE_Load) || (opcode == `OPCODE_AUIPC)) ? 1'b1 : 1'b0;
+    assign RegWrite = ((opcode == `OPCODE_Load) || (opcode == `OPCODE_Arith_R) || (opcode == `OPCODE_Arith_I) || (opcode == `OPCODE_JAL) || (opcode == `OPCODE_JALR) || (opcode == `OPCODE_LUI) || (opcode == `OPCODE_AUIPC) || (CSRWrite) ) ? 1'b1 : 1'b0;
     
     assign Mode = (opcode == `OPCODE_Store && instr[14:12] == `S_SW) ? `MEM_W:
                     (opcode == `OPCODE_Store && instr[14:12] == `S_SH) ? `MEM_HW:
@@ -63,13 +65,17 @@ module ControlUnit(
                     (opcode == `OPCODE_Branch && instr[14:12] == `BR_BGEU)? `ALUOP_SUB :     // TODO
                     
                     (opcode == `OPCODE_Load) ? `ALUOP_ADD :
+                    
+                    (opcode == `OPCODE_AUIPC) ? `ALUOP_ADD :
                     `ALU_PASS;              // Default Value if opcode not defined
         
-    assign Lui  =   (opcode == `OPCODE_LUI) ? 1 : 0;
+    assign Lui  =   (opcode == `OPCODE_LUI) ? 1'b1 : 1'b0;
     
-    assign ECall =  (opcode == `OPCODE_SYSTEM && instr[14:12] == `SYS_EC_EB && instr[20] == 1'b0 && instr[31:20] != `MRET) ? 1 : 0;
+    assign Auipc = (opcode == `OPCODE_AUIPC) ? 1'b1 : 1'b0;
     
-    assign EBreak = (opcode == `OPCODE_SYSTEM && instr[14:12] == `SYS_EC_EB && instr[20] == 1'b1) ? 1 : 0;
+    assign ECall =  (opcode == `OPCODE_SYSTEM && instr[14:12] == `SYS_EC_EB && instr[20] == 1'b0 && instr[31:20] != `MRET) ? 1'b1 : 1'b0;
+    
+    assign EBreak = (opcode == `OPCODE_SYSTEM && instr[14:12] == `SYS_EC_EB && instr[20] == 1'b1) ? 1'b1 : 1'b0;
     
     assign MRET =   (opcode == `OPCODE_SYSTEM && instr[14:12] == `PRIV && instr[31:20] == `MRET) ? 1'b1 : 1'b0;
     
