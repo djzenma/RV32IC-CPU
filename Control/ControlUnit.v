@@ -17,16 +17,12 @@ module ControlUnit(
     output [2:0] Mode,
     output       Lui,
     output       ECall,
-<<<<<<< HEAD
     output       EBreak,
     output       MRET,
     output       CSRWrite,
     output       CSRSet,
     output       CSRClear,
     output       CSRI
-=======
-    output       EBreak
->>>>>>> a89a1fd4b6a0ba4c10a618539485cdb2fe01a9f2
 );
     
     assign Jump = (opcode == `OPCODE_JAL) ? 2'b01: 
@@ -37,11 +33,7 @@ module ControlUnit(
     assign MemToReg = (opcode == `OPCODE_Load) ? 1:0;
     assign MemWrite = (opcode == `OPCODE_Store) ? 1:0;
     assign ALUSrc = ((opcode == `OPCODE_Arith_I) || (opcode == `OPCODE_Store) || (opcode == `OPCODE_Load)) ? 1:0;
-<<<<<<< HEAD
     assign RegWrite = ((opcode == `OPCODE_Load) || (opcode == `OPCODE_Arith_R) || (opcode == `OPCODE_Arith_I) || (opcode == `OPCODE_JAL) || (opcode == `OPCODE_JALR) || (opcode == `OPCODE_LUI) || (CSRWrite) ) ? 1:0;
-=======
-    assign RegWrite = ((opcode == `OPCODE_Load) || (opcode == `OPCODE_Arith_R) || (opcode == `OPCODE_Arith_I) || (opcode == `OPCODE_JAL) || (opcode == `OPCODE_JALR) || (opcode == `OPCODE_LUI)) ? 1:0;
->>>>>>> a89a1fd4b6a0ba4c10a618539485cdb2fe01a9f2
     
     assign Mode = (opcode == `OPCODE_Store && instr[14:12] == `S_SW) ? `MEM_W:
                     (opcode == `OPCODE_Store && instr[14:12] == `S_SH) ? `MEM_HW:
@@ -75,7 +67,6 @@ module ControlUnit(
         
     assign Lui  =   (opcode == `OPCODE_LUI) ? 1 : 0;
     
-<<<<<<< HEAD
     assign ECall =  (opcode == `OPCODE_SYSTEM && instr[14:12] == `SYS_EC_EB && instr[20] == 1'b0 && instr[31:20] != `MRET) ? 1 : 0;
     
     assign EBreak = (opcode == `OPCODE_SYSTEM && instr[14:12] == `SYS_EC_EB && instr[20] == 1'b1) ? 1 : 0;
@@ -89,10 +80,5 @@ module ControlUnit(
     assign CSRClear = (opcode == `OPCODE_SYSTEM &&  instr[14:12] == `SYS_CSRRC) ? 1'b1 : 1'b0;
     
     assign CSRI = (opcode == `OPCODE_SYSTEM && (instr[14:12] == `SYS_CSRRWI ||  instr[14:12] == `SYS_CSRRSI || instr[14:12] == `SYS_CSRRCI) ) ? 1'b1 : 1'b0;
-=======
-    assign ECall =  (opcode == `OPCODE_SYSTEM && instr[14:12] == `SYS_EC_EB && instr[20] == 1'b0) ? 1 : 0;
-    
-    assign EBreak = (opcode == `OPCODE_SYSTEM && instr[14:12] == `SYS_EC_EB && instr[20] == 1'b1) ? 1 : 0;
->>>>>>> a89a1fd4b6a0ba4c10a618539485cdb2fe01a9f2
 
 endmodule

@@ -51,21 +51,15 @@
 `define     F3_SRL          3'b101
 `define     F3_OR           3'b110
 `define     F3_AND          3'b111
-<<<<<<< HEAD
 `define     PRIV            3'b000
-=======
->>>>>>> a89a1fd4b6a0ba4c10a618539485cdb2fe01a9f2
 
 // FUNC7
 `define     F7_SRA          7'b0100000
 `define     F7_SUB          7'b0100000
 
-<<<<<<< HEAD
 // FUNC12
 `define     MRET            12'h302
 
-=======
->>>>>>> a89a1fd4b6a0ba4c10a618539485cdb2fe01a9f2
 `define     BR_BEQ          3'b000
 `define     BR_BNE          3'b001
 `define     BR_BLT          3'b100
@@ -115,7 +109,6 @@
 `define     INT             3'b011
 `define     ECALL           3'b100
 
-<<<<<<< HEAD
 `define MEPC_ADDR   12'h341
 `define MCYCLE_ADDR   12'hb00
 `define MTIME_ADDR   12'hb01
@@ -125,8 +118,6 @@
 
 `define     CODE_SEGMENT    32'h000
 
-=======
->>>>>>> a89a1fd4b6a0ba4c10a618539485cdb2fe01a9f2
 `define     SYS_EC_EB       3'b000
 `define     SYS_CSRRW       3'b001
 `define     SYS_CSRRS       3'b010
