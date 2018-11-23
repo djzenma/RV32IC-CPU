@@ -1,10 +1,19 @@
 // file: RISCV.v
+<<<<<<< HEAD
 // author: @mazenAmr
+=======
+// author: @cherifsalama
+>>>>>>> a89a1fd4b6a0ba4c10a618539485cdb2fe01a9f2
 
 `timescale 1ns/1ns
 
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> a89a1fd4b6a0ba4c10a618539485cdb2fe01a9f2
 module RISCV(
     input             clk_i,
     input             rst,
@@ -12,9 +21,13 @@ module RISCV(
     input             int,
     input             int_num,
     input             nmi,
+<<<<<<< HEAD
     input             en_nmi,
     input             en_ecall,
     input             en_ebreak,
+=======
+    input             en_ecall,
+>>>>>>> a89a1fd4b6a0ba4c10a618539485cdb2fe01a9f2
     input             en_int,
     input             en_tmr,
     input   [31:0]    limit
@@ -22,20 +35,28 @@ module RISCV(
     /*
     *   Variables Declaration
     */
+<<<<<<< HEAD
     wire [31:0] PC_out, PCAdder_out, BranchAdder_out, PC_Or_Branch,
+=======
+    wire [31:0] PC_out, PCAdder_out, BranchAdder_out, PC_in, PC_Or_Branch,
+>>>>>>> a89a1fd4b6a0ba4c10a618539485cdb2fe01a9f2
                 RegR1, RegR2, RegW, ImmGen_out, Shift_out, ALUSrcMux_out,
                 ALU_out, Mem_out, Inst, PC_Or_Jal, decompressedInstr;
     wire        Branch, MemRead, MemToReg, MemWrite, ALUSrc, RegWrite, Zero;
     wire [1:0]  ALUOp, Jump;
     wire [3:0]  ALUSel;
     wire        branchTaken, clk_RF, clk_inv, clk, memSelect;
+<<<<<<< HEAD
     reg [31:0]  PC_in;
+=======
+>>>>>>> a89a1fd4b6a0ba4c10a618539485cdb2fe01a9f2
  
     
     // IF_ID pipeline reg wires
     wire [31:0] IF_ID_PC, IF_ID_Inst, jump_address, jal_branch_address, jalR_address, PC4_Or_Branch, IF_ID_InstOut;
     wire [2:0]  IF_ID_Mode;
     wire [4:0]  rs2;
+<<<<<<< HEAD
     wire [1:0]  fwdA, fwdB;
     wire        IF_ID_luiControl, CompressedFlag, ECall, EBreak, MRET, CSRWrite, CSRSet, CSRClear, CSRI;
     
@@ -43,12 +64,20 @@ module RISCV(
     // ID_EX pipeline reg wires
     reg  [31:0] ALU_OprandA, ALU_OprandB;
     wire [31:0] ID_EX_PC, ID_EX_RegR1, ID_EX_RegR2, ID_EX_Imm, ID_EX_interAddr, PC_in_wo_inter, ID_EX_Inst, csr_read;
+=======
+    wire        IF_ID_luiControl, CompressedFlag, ECall, EBreak;
+    
+
+    // ID_EX pipeline reg wires
+    wire [31:0] ID_EX_PC, ID_EX_RegR1, ID_EX_RegR2, ID_EX_Imm, ID_EX_interAddr, PC_in_wo_inter;
+>>>>>>> a89a1fd4b6a0ba4c10a618539485cdb2fe01a9f2
     wire [12:0] ID_EX_Ctrl;
     wire [9:0]  ID_EX_Func;
     wire [4:0]  ID_EX_Rs1, ID_EX_Rs2, ID_EX_Rd, regsrc;
     wire [2:0]  ID_EX_Mode;
     wire [31:0] memMuxOut;
     wire [2:0]  interSel;
+<<<<<<< HEAD
     wire        ID_EX_luiControl, interF, tmr, ID_EX_ECall, ID_EX_EBreak, ID_EX_MRET, ID_EX_CSRWrite, ID_EX_CSRSet, ID_EX_CSRClear, ID_EX_CSRI;
     wire [11:0] csrAddr, csrAddrR;
    
@@ -65,6 +94,23 @@ module RISCV(
     wire        regMuxSelection, jalSel, MEM_WB_luiControl, MEM_WB_CSRWrite, MEM_WB_CSRSet, MEM_WB_CSRClear, MEM_WB_CSRI;
 
 
+=======
+    wire        ID_EX_luiControl, interF, tmr, ID_EX_ECall, ID_EX_EBreak;
+   
+    // EX_MEM pipeline reg wires
+    wire [31:0] EX_MEM_BranchAddOut, EX_MEM_ALU_out, EX_MEM_RegR2, EX_MEM_PC, EX_MEM_Imm;
+    wire [9:0]  EX_MEM_Ctrl;
+    wire [4:0]  EX_MEM_Rd;
+    wire        EX_MEM_Zero, sFlag, vFlag, cFlag, lt_flag, ge_flag, ltu_flag, geu_flag, eq_flag, ne_flag, EX_MEM_luiControl;
+    
+    // MEM_WB pipeline reg wires
+    wire [31:0] MEM_WB_Mem_out, MEM_WB_ALU_out, MEM_WB_PC, RegData, MEM_WB_Imm;
+    wire [3:0]  MEM_WB_Ctrl;
+    wire [4:0]  MEM_WB_Rd;
+    wire        regMuxSelection, jalSel, MEM_WB_luiControl;
+
+    
+>>>>>>> a89a1fd4b6a0ba4c10a618539485cdb2fe01a9f2
     ClkDiv clkDiv (.clk(clk_i), .rst(rst), .clk_o(clk));
         //ClkDivRF clkDivRF (.clk(clk_i), .rst(rst), .clk_o(clk_RF));
         
@@ -85,22 +131,36 @@ module RISCV(
     );
 
 
+<<<<<<< HEAD
     RegWLoad#(206) ID_EX (.clk (clk),
+=======
+    RegWLoad#(169) ID_EX (.clk (clk),
+>>>>>>> a89a1fd4b6a0ba4c10a618539485cdb2fe01a9f2
                           .rst (rst),
                           .load (1'b1),
                           .data_in ({ Jump, IF_ID_Mode, RegWrite, MemToReg, Branch, MemRead, MemWrite, ALUOp, ALUSrc,// all the control signals
                                    IF_ID_PC, RegR1, RegR2, ImmGen_out,
                                    IF_ID_Inst[31:25], IF_ID_Inst[14:12],
+<<<<<<< HEAD
                                    IF_ID_Inst[19:15], IF_ID_Inst[24:20], IF_ID_Inst[11:7], IF_ID_luiControl, ECall, EBreak, MRET, IF_ID_InstOut, CSRWrite, CSRSet, CSRClear, CSRI}), // the 3 regs
                           .data_out ({ID_EX_Ctrl, ID_EX_PC, ID_EX_RegR1, ID_EX_RegR2, ID_EX_Imm, // ID_EX_Ctrl has all the 11 bits (7) controls
                                    ID_EX_Func, ID_EX_Rs1, ID_EX_Rs2, ID_EX_Rd, ID_EX_luiControl, ID_EX_ECall, ID_EX_EBreak, ID_EX_MRET, ID_EX_Inst, ID_EX_CSRWrite, ID_EX_CSRSet, ID_EX_CSRClear, ID_EX_CSRI}) 
     );
 
     RegWLoad#(282) EX_MEM (.clk (~clk),
+=======
+                                   IF_ID_Inst[19:15], IF_ID_Inst[24:20], IF_ID_Inst[11:7], IF_ID_luiControl, ECall, EBreak}), // the 3 regs
+                          .data_out ({ID_EX_Ctrl, ID_EX_PC, ID_EX_RegR1, ID_EX_RegR2, ID_EX_Imm, // ID_EX_Ctrl has all the 11 bits (7) controls
+                                   ID_EX_Func, ID_EX_Rs1, ID_EX_Rs2, ID_EX_Rd, ID_EX_luiControl, ID_EX_ECall, ID_EX_EBreak}) 
+    );
+
+    RegWLoad#(177) EX_MEM (.clk (~clk),
+>>>>>>> a89a1fd4b6a0ba4c10a618539485cdb2fe01a9f2
                            .rst (rst),
                            .load (1'b1),
                            .data_in ({ID_EX_Ctrl[12:3], // Jump, IF_ID_Mode, RegWrite,MemToReg, and Branch,MemRead,MemWrite
                                     BranchAdder_out, Zero, ALU_out,
+<<<<<<< HEAD
                                     ID_EX_RegR2, ID_EX_Rd, ID_EX_PC, ID_EX_Imm, ID_EX_luiControl, csr_read, ID_EX_CSRWrite, ID_EX_RegR1, ID_EX_Inst, ID_EX_CSRSet, ID_EX_CSRClear, ID_EX_Rs1, ID_EX_CSRI}),
                            .data_out ({EX_MEM_Ctrl, // EX_MEM_Ctrl = Jump, IF_ID_Mode, RegWrite,MemToReg, and Branch,MemRead,MemWrite
                                     EX_MEM_BranchAddOut, EX_MEM_Zero,
@@ -115,12 +175,33 @@ module RISCV(
                           .data_in ({ {EX_MEM_Ctrl[9:8], EX_MEM_Ctrl[4:3]}, // RegWrite,MemToReg
                                    Mem_out, EX_MEM_ALU_out, EX_MEM_Rd, EX_MEM_PC, EX_MEM_Imm, EX_MEM_luiControl, EX_MEM_csr_read, EX_MEM_CSRWrite, EX_MEM_RegR1, EX_MEM_Inst, EX_MEM_CSRSet, EX_MEM_CSRClear, EX_MEM_Rs1, EX_MEM_CSRI}),
                           .data_out ({MEM_WB_Ctrl, MEM_WB_Mem_out, MEM_WB_ALU_out, MEM_WB_Rd, MEM_WB_PC, MEM_WB_Imm, MEM_WB_luiControl, MEM_WB_csr_read, MEM_WB_CSRWrite, MEM_WB_RegR1, MEM_WB_Inst, MEM_WB_CSRSet, MEM_WB_CSRClear, MEM_WB_Rs1, MEM_WB_CSRI})
+=======
+                                    ID_EX_RegR2, ID_EX_Rd, ID_EX_PC, ID_EX_Imm, ID_EX_luiControl}),
+                           .data_out ({EX_MEM_Ctrl, // EX_MEM_Ctrl = Jump, IF_ID_Mode, RegWrite,MemToReg, and Branch,MemRead,MemWrite
+                                    EX_MEM_BranchAddOut, EX_MEM_Zero,
+                                    EX_MEM_ALU_out,
+                                    EX_MEM_RegR2, EX_MEM_Rd, EX_MEM_PC, EX_MEM_Imm, EX_MEM_luiControl})
+    );
+
+
+
+    RegWLoad#(138) MEM_WB (.clk (clk),
+                          .rst (rst),
+                          .load (1'b1),
+                          .data_in ({ {EX_MEM_Ctrl[9:8], EX_MEM_Ctrl[4:3]}, // RegWrite,MemToReg
+                                   Mem_out, EX_MEM_ALU_out, EX_MEM_Rd, EX_MEM_PC, EX_MEM_Imm, EX_MEM_luiControl}),
+                          .data_out ({MEM_WB_Ctrl, MEM_WB_Mem_out, MEM_WB_ALU_out, MEM_WB_Rd, MEM_WB_PC, MEM_WB_Imm, MEM_WB_luiControl})
+>>>>>>> a89a1fd4b6a0ba4c10a618539485cdb2fe01a9f2
     );
 
     /*
     *   Fetch
     */
 
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> a89a1fd4b6a0ba4c10a618539485cdb2fe01a9f2
     RegWLoad PC (.clk      (clk),
                  .rst      (rst),
                  .load     (1'b1),
@@ -129,6 +210,18 @@ module RISCV(
     );
 
 
+<<<<<<< HEAD
+=======
+
+    RippleAdder IncPC (.a  (PC_out),
+                       .b  (4),
+                       .ci (1'b0),
+                       .s  (PCAdder_out),
+                       .co (),    // No use for the carry out
+                       .last_ci()
+    );
+
+>>>>>>> a89a1fd4b6a0ba4c10a618539485cdb2fe01a9f2
     /*
     *   Decode
     */
@@ -141,8 +234,11 @@ module RISCV(
     assign IF_ID_Inst = (CompressedFlag == 1'b1) ? decompressedInstr : IF_ID_InstOut;
     
     assign rs2 = IF_ID_Inst[24:20];
+<<<<<<< HEAD
     
     
+=======
+>>>>>>> a89a1fd4b6a0ba4c10a618539485cdb2fe01a9f2
    
     RegFile rf (.clk    (clk_i),
             .clk_slow   (clk),
@@ -195,17 +291,22 @@ module RISCV(
                     .Mode     (IF_ID_Mode),
                     .Lui      (IF_ID_luiControl),
                     .ECall    (ECall),
+<<<<<<< HEAD
                     .EBreak   (EBreak),
                     .MRET     (MRET),
                     .CSRWrite (CSRWrite),
                     .CSRSet   (CSRSet),
                     .CSRClear (CSRClear),
                     .CSRI     (CSRI)
+=======
+                    .EBreak   (EBreak)
+>>>>>>> a89a1fd4b6a0ba4c10a618539485cdb2fe01a9f2
     );
 
     /*
     *   Execute  
     */
+<<<<<<< HEAD
     ForwardUnit FwdUnit (
         .ID_EX_Rs1(ID_EX_Rs1),
         .ID_EX_Rs2(ID_EX_Rs2),
@@ -239,6 +340,9 @@ module RISCV(
     
     end
      
+=======
+
+>>>>>>> a89a1fd4b6a0ba4c10a618539485cdb2fe01a9f2
     Mux2_1#(32) aluSrcBMux (.sel (ID_EX_Ctrl[0]),
                             .in1 (ID_EX_RegR2),
                             .in2 (ID_EX_Imm),
@@ -247,8 +351,13 @@ module RISCV(
 
     ALU a1 (
             .sel (ALUSel),
+<<<<<<< HEAD
             .a   (ALU_OprandA),
             .b   (ALU_OprandB),
+=======
+            .a   (ID_EX_RegR1),
+            .b   (ALUSrcMux_out),
+>>>>>>> a89a1fd4b6a0ba4c10a618539485cdb2fe01a9f2
             .prevRes(ALU_out),
             .result   (ALU_out),
             .z   (Zero),
@@ -318,6 +427,7 @@ module RISCV(
                     .sel   (ALUSel)
     );
 
+<<<<<<< HEAD
 
     
     /*********************************************************************/
@@ -359,6 +469,40 @@ module RISCV(
         else
             PC_in = PC_in_wo_inter;
     end
+=======
+    TmrGenerator tmrGen (
+            .clk(clk),
+            .rst(rst),
+            .limit(limit),
+            .tmrF(tmr)
+    );
+    
+    Interrupt_Detector interUnit (
+                .nmi(nmi),
+                .ecall(ID_EX_ECall),
+                .ebreak(ID_EX_EBreak),
+                .int(int),
+                .tmr(tmr),
+                
+                .en_inter(en_inter),
+                
+                .en_ecall(en_ecall),
+                .en_int(en_int),
+                .en_tmr(en_tmr),
+                
+                .interFlag(interF),
+                .interSel(interSel) 
+    );
+    
+    InterruptAddressGenerator intrAdrrGen(          // TODO :: save PC in mepc
+                .interruptF(interF),
+                .interSel(interSel),
+                .intNum(int_num),
+                .addr(ID_EX_interAddr)
+    );
+    
+    assign PC_in = (interF) ? ID_EX_interAddr : PC_in_wo_inter;
+>>>>>>> a89a1fd4b6a0ba4c10a618539485cdb2fe01a9f2
     
     /*
     *   Mem  
@@ -408,9 +552,14 @@ module RISCV(
     Mux2_1#(32) regWSrcMux3 (    .sel (MEM_WB_luiControl),  // Jump
                                     .in1 (PC_Or_Jal),
                                     .in2 (MEM_WB_Imm),
+<<<<<<< HEAD
                                     .out (RegW_No_Inter)
     );
     assign RegW = (MEM_WB_CSRWrite) ? MEM_WB_csr_read : RegW_No_Inter;
+=======
+                                    .out (RegW)
+    );
+>>>>>>> a89a1fd4b6a0ba4c10a618539485cdb2fe01a9f2
 
 endmodule
 

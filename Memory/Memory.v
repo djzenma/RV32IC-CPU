@@ -39,6 +39,7 @@
     always @(posedge rst or negedge clk)
         begin
             if (rst == 1) begin 
+<<<<<<< HEAD
                 $readmemh("C:/Users/eidma/Desktop/PrjSim/testCase.txt",mem);
 //                // CSRC
 //                mem[8] = 8'h73;
@@ -50,6 +51,9 @@
 //                mem[33] = 8'b00000000;
 //                mem[34] = 8'b00100000;
 //                mem[35] = 8'b00110000;
+=======
+                $readmemh("C:/Users/eidma/Desktop/Project/Project/src/testCase.txt",mem);
+>>>>>>> a89a1fd4b6a0ba4c10a618539485cdb2fe01a9f2
             end
             else begin
                 if (MemWrite && clk_i) begin
